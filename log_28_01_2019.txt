@@ -1,0 +1,1 @@
+2019-01-28 06:12:13.271000 == System: open log file.2019-01-28 06:12:16.436000 == System: python function routing in here!

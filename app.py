@@ -2,8 +2,9 @@ from flask import Flask, flash, redirect, render_template, request, session, abo
 from datetime import datetime
 import time
 import json
-from process_nouns import *
-from use_rensa import *
+import sys
+#from process_nouns import *
+#from use_rensa import *
 
 app = Flask(__name__)
 # prepare log file
@@ -33,9 +34,45 @@ def add_header(r):
 def index():
     log_file.write(str(datetime.now())+" == System: python function routing in here!\n")
     return render_template(
-        'Index.html')
+        'VisualApps.html')
+
+# Route to Apps
+@app.route("/ComprehensionDemo")
+def comprehensionDemo():
+    # read assigned file here
+    print("====================================\n\n\n")
+    print("This launch the comprehension demo")
+    #preprocessing_text_file(input_file)
+    
+    return render_template(
+        'ComprehensionDemo/index.html')  
+
+@app.route("/StoryLine")
+def storyLine():
+    # read assigned file here
+    print("====================================\n\n\n")
+    print("This launch the story line")
+    #preprocessing_text_file(input_file)
+    
+    return render_template(
+        'StoryLine/index.html')  
+
+@app.route("/Scene")
+def sceneVisualize():
+    # read assigned file here
+    print("====================================\n\n\n")
+    print("This launch the scene visualization")
+    #preprocessing_text_file(input_file)
+    
+    return render_template(
+        'Scene/index.html')  
 
 
+
+
+#################################################################
+#################################################################
+#################################################################
 # POST: chosen text file
 @app.route('/postmethod', methods = ['POST'])
 def get_post_javascript_data():
